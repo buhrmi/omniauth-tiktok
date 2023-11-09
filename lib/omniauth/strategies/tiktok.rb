@@ -62,6 +62,7 @@ module OmniAuth
           params[:scope] ||= DEFAULT_SCOPE
           params[:response_type] = 'code'
           params.delete(:client_id)
+          params.delete(:state) # TikTok throws redirect_uri mismatch error if state is included
           params[:client_key] = options.client_id
         end
       end
